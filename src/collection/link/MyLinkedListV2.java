@@ -1,6 +1,6 @@
 package collection.link;
 
-public class MyLinkedListV1 {
+public class MyLinkedListV2 {
 
     private Node first;
     private  int size = 0;
@@ -16,6 +16,19 @@ public class MyLinkedListV1 {
         }
         size++;
         }
+    //추가 코드
+    public void add(int index, Object e) {
+        Node newNode = new Node(e);
+        if (index == 0) {
+            newNode.next = first;
+            first = newNode;
+        } else {
+            Node prev = getNode(index - 1);
+            newNode.next = prev.next;
+            prev.next = newNode;
+        }
+        size++;
+    }
 
     private Node getLastNode() {
         Node x = first;
@@ -32,6 +45,23 @@ public class MyLinkedListV1 {
         x.item = element;
 
         return x;
+    }
+
+    //추가 코드
+    public Object remove(int index) {
+        Node removeNode = getNode(index);
+        Object removedItem = removeNode.item;
+        if (index == 0) {
+            first = removeNode.next;
+        }else {
+            Node prev = getNode(index - 1);
+            prev.next = removeNode.next;
+        }
+        removeNode.item = null;
+        removeNode.next = null;
+
+        size--;
+        return removedItem;
     }
 
     public Object get(int index) {

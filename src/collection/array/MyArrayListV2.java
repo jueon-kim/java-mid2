@@ -1,20 +1,19 @@
 package collection.array;
 
-import javax.swing.*;
 import java.util.Arrays;
 
-public class MyArrayListV1 {
+public class MyArrayListV2 {
 
     private static final int DEFAULT_CAPACITY = 5;
 
     private Object[] elementData;
     private int size = 0;
 
-    public MyArrayListV1() {
+    public MyArrayListV2() {
         elementData = new Object[DEFAULT_CAPACITY];
     }
 
-    public MyArrayListV1(int initialCapacity) {
+    public MyArrayListV2(int initialCapacity) {
         elementData = new Object[initialCapacity];
     }
 
@@ -23,8 +22,27 @@ public class MyArrayListV1 {
     }
 
     public void add(Object e) {
-       elementData[size] = e;
-       size++;
+        //코드 추가
+        if (size == elementData.length) {
+            grow();
+        }
+        elementData[size] = e;
+        size++;
+    }
+
+    public void grow() {
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity * 2;
+
+        //배열을 새로 만들고, 기존 배열을 새로운 배열로 복사
+
+        Object[] newArr = new Object[DEFAULT_CAPACITY];
+//        for (int i = 0; i < elementData.length; i++) {
+//            newArr[i] = elementData[i];
+//        }
+
+        elementData = Arrays.copyOf(elementData, newCapacity);
+
     }
 
     public Object get(int index) {

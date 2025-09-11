@@ -1,4 +1,4 @@
-package generic.ex;
+package generic.ex1;
 
 public class RowTypeMain {
 

@@ -1,4 +1,4 @@
-package generic.test2.ex2;
+package generic.test.ex2;
 
 public class Pair<T1, T2> {
     private T1 first;

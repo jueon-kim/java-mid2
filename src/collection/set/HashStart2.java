@@ -1,24 +1,21 @@
 package collection.set;
 
-import java.util.ArrayList;
+import java.io.FilterOutputStream;
 import java.util.Arrays;
 
-public class HashStart1 {
+public class HashStart2 {
 
     public static void main(String[] args) {
-        Integer[] inputArray = new Integer[4];
-        inputArray[0] = 1;
-        inputArray[1] = 2;
-        inputArray[2] = 5;
-        inputArray[3] = 8;
+        Integer[] inputArray = new Integer[10];
+        inputArray[1] = 1;
+        inputArray[2] = 2;
+        inputArray[5] = 5;
+        inputArray[8] = 8;
 
         System.out.println("inputArray" + Arrays.toString(inputArray));
 
         int searchValue = 8;
-        for (Integer inputValue : inputArray) {
-            if (inputValue == searchValue) {
-                System.out.println(inputValue);
-            }
-        }
+        Integer result = inputArray[searchValue];
+        System.out.println("result = " + result);
     }
 }

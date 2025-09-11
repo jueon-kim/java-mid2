@@ -1,10 +1,15 @@
 package generic.test.ex3.unit;
 
-public class Shuttle {
+public class Shuttle<T extends BioUnit> {
 
-    public static <T extends BioUnit> T showInfo(T t1, T t2) {
-        showInfo()
-
-        return showInfo(t1, t2);
+    private T unit;
+    public void in(T t) {
+        unit = t;
+    }
+    public T out() {
+        return unit;
+    }
+    public void showInfo() {
+        System.out.println("이름: " + unit.getName() + ", HP: " + unit.getHp());
     }
 }
